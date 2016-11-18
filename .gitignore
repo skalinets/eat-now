@@ -3,3 +3,6 @@ packages/
 .fake/
 bin/
 obj/
+_NCrunch_*/
+*.user
+.vs/

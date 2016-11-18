@@ -1,0 +1,4 @@
+<message level="Info"><![CDATA[Running Buildscript: build.fsx]]></message>
+<message level="Info"><![CDATA[Using cache]]></message>
+<message level="Info"><![CDATA[Ready.]]></message>
+</buildresults>
