@@ -1,4 +1,4 @@
 namespace EatNow.Core
 
-type EatNow.Core() = 
+type EatNowCore() = 
     member this.X = "F#"

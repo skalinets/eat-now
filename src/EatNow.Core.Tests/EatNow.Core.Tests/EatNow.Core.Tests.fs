@@ -1,6 +1,7 @@
 module EatNow.Core.Tests
 
-[<EntryPoint>]
-let main argv =
-    printfn "%A" argv
-    0 // return an integer exit code
+open NUnit.Framework
+
+[<Test>]
+let ``do the shit`` () =
+    Assert.AreEqual (1, 2)

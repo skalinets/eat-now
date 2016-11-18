@@ -2,6 +2,7 @@
 
 open Fake
 let buildDir = "./build"
+let testsDir = "./tests"
 Target "Clean" (fun _ ->  CleanDir buildDir)
 Target "BuildApp" (fun _ -> 
         !! "src/**/*.fsproj"
@@ -9,7 +10,27 @@ Target "BuildApp" (fun _ ->
             |> MSBuildRelease buildDir "Build"
             |> Log "AppBuild-Output: "
 )
+
+Target "BuildTests" (fun _ -> 
+        !! "src/**/*.Tests.fsproj"
+            |> MSBuildDebug testsDir "Build"
+            |> Log "TestBuild-Output: "
+)
+    
+let nunitRunnerPath = "packages/NUnit.Runners/tools/"
+
+Target "RunUnitTests" (fun _ ->
+        !! (testsDir + "/*.Tests.dll")
+        |> NUnit (fun p -> { p with ToolPath = nunitRunnerPath})
+
+        printfn "hello"
+
+)
+
 "Clean"
     ==> "BuildApp"
+    ==> "BuildTests"
+    ==> "RunUnitTests"
 
-RunParameterTargetOrDefault "BuildApp"
+
+RunParameterTargetOrDefault "RunUnitTests"
