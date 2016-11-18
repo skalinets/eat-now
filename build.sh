@@ -11,6 +11,7 @@ if test "$OS" = "Windows_NT"
     if [ $exit_code -ne 0 ]; then
         exit $exit_code
     fi
+    packages/FAKE/tools/FAKE.exe $@ --fsiargs build.fsx
 else # For Non Windows
     mono .paket/paket.bootstrapper.exe
     exit_code=$?
@@ -22,4 +23,5 @@ else # For Non Windows
     if [ $exit_code -ne 0 ]; then
         exit $exit_code
     fi
+    mono packages/FAKE/tools/FAKE.exe $@ --fsiargs -d:MONO build.fsx
 fi
