@@ -1,5 +1,5 @@
 source https://www.nuget.org/api/v2
 nuget FAKE
 nuget FSharp.Core
-nuget NUnit
-nuget NUnit.Runners
+nuget NUnit < 3
+nuget NUnit.Runners < 3

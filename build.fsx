@@ -19,8 +19,7 @@ Target "BuildTests" (fun _ ->
             |> MSBuildDebug testsDir "Build"
             |> Log "TestBuild-Output: "
 )
-    
-let nunitRunnerPath = "packages/NUnit.Runners/tools/"
+let nunitRunnerPath = "./packages/NUnit.Runners/tools"
 
 Target "RunUnitTests" (fun _ ->
         !! (testsDir + "/*.Tests.dll")
@@ -34,4 +33,4 @@ Target "RunUnitTests" (fun _ ->
     ==> "BuildTests"
     ==> "RunUnitTests"
 
-RunParameterTargetOrDefault "RunUnitTests"
+RunTargetOrDefault "RunUnitTests"
