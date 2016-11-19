@@ -4,4 +4,4 @@ open NUnit.Framework
 
 [<Test>]
 let ``do the shit`` () =
-    Assert.AreEqual (1, 1)
+    Assert.AreEqual (1, 2)
