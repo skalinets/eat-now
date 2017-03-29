@@ -24,7 +24,7 @@ Target "BuildTests" (fun _ ->
 let nunitRunnerPath = "./packages/NUnit.Runners/tools"
 
 Target "RunUnitTests" (fun _ ->
-        !! (testsDir + "/*.Tests.dll")
+        !! (testsDir + "/*.Tests.exe")
         |> Expecto (fun p -> p)
 
         printfn "hello"
