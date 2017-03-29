@@ -1,5 +1,4 @@
 source https://www.nuget.org/api/v2
-nuget FAKE
+nuget FAKE prerelease
 nuget FSharp.Core
-nuget NUnit < 3
-nuget NUnit.Runners < 3
+nuget Expecto.FsCheck

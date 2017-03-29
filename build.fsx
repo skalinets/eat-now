@@ -1,6 +1,8 @@
 #r "packages/FAKE/tools/FakeLib.dll"
 
 open Fake
+open Fake.Testing.Expecto
+
 let buildDir = "./build"
 let testsDir = "./tests"
 
@@ -23,7 +25,7 @@ let nunitRunnerPath = "./packages/NUnit.Runners/tools"
 
 Target "RunUnitTests" (fun _ ->
         !! (testsDir + "/*.Tests.dll")
-        |> NUnit (fun p -> { p with ToolPath = nunitRunnerPath})
+        |> Expecto (fun p -> p)
 
         printfn "hello"
 )

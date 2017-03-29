@@ -1,7 +1,14 @@
-module EatNow.Core.Tests
+module Tests
 
-open NUnit.Framework
+open Expecto
 
-[<Test>]
-let ``do the shit`` () =
-    Assert.AreEqual (1, 1)
+let (==?) a e = Expect.equal e a ""
+let tests =
+    test "simple test" {
+       1 ==? 1     
+    }
+
+[<EntryPoint>]
+let main argv =
+    runTestsWithArgs defaultConfig argv tests 
+
